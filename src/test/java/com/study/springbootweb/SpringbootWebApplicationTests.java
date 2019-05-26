@@ -18,7 +18,7 @@ public class SpringbootWebApplicationTests {
     @Test
     public void contextLoads() {
         System.out.println(applicationContext);
-        System.out.println(applicationContext.getBean("paramConfig").toString());
+        System.out.println(applicationContext.getBean("helloService"));
     }
 
 }
