@@ -19,6 +19,7 @@ public class SpringbootWebApplicationTests {
     public void contextLoads() {
         System.out.println(applicationContext);
         System.out.println(applicationContext.getBean("helloService"));
+        System.out.println(applicationContext.getBean("hello"));
     }
 
 }
