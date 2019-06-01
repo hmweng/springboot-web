@@ -1,6 +1,11 @@
 package com.study.springbootweb.config;
 
-import com.study.springbootweb.interceptor.SessionHandlerInterceptor;
+import com.study.springbootweb.filter.FilterTest;
+import com.study.springbootweb.listener.ListenerTest;
+import com.study.springbootweb.servlet.ServletTest;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
+import org.springframework.boot.web.servlet.ServletListenerRegistrationBean;
+import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -13,13 +18,26 @@ public class WebConfig {
 
     /**
      * @Bean注解：给容器中添加组件
+     * Servlet组件
      * @return
      */
-    /*@Bean
-    public SessionHandlerInterceptor sessionHandlerInterceptor(){
-        return new SessionHandlerInterceptor();
-    }*/
+    @Bean
+    public ServletRegistrationBean sessionHandlerInterceptor(){
+        ServletRegistrationBean registrationBean = new ServletRegistrationBean(new ServletTest(),"/servletTest");
+        return registrationBean;
+    }
 
+    @Bean
+    public FilterRegistrationBean filterRegistrationBean(){
+        FilterRegistrationBean<FilterTest> filterRegistrationBean = new FilterRegistrationBean<>();
+        filterRegistrationBean.setFilter(new FilterTest());
+        filterRegistrationBean.addUrlPatterns("/*");
+        return filterRegistrationBean;
+    }
 
+    @Bean
+    public ServletListenerRegistrationBean servletListenerRegistrationBean(){
+        return new ServletListenerRegistrationBean<>(new ListenerTest());
+    }
 
 }
