@@ -1,6 +1,6 @@
 package com.study.springbootweb.config;
 
-import com.study.springbootweb.service.HelloService;
+import com.study.springbootweb.interceptor.SessionHandlerInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -15,9 +15,11 @@ public class WebConfig {
      * @Bean注解：给容器中添加组件
      * @return
      */
-    @Bean
-    public HelloService hello(){
-        return new HelloService();
-    }
+    /*@Bean
+    public SessionHandlerInterceptor sessionHandlerInterceptor(){
+        return new SessionHandlerInterceptor();
+    }*/
+
+
 
 }
