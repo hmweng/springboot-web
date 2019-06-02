@@ -2,12 +2,13 @@ package com.study.springbootweb;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.ImportResource;
 
 /**
  * ImportResource 引入xml配置文件，让springboot解析
  */
-@SpringBootApplication
+@SpringBootApplication(/*exclude = {DataSourceAutoConfiguration.class}*/)
 //@ImportResource(value = "classpath:spring/spring-bean.xml")
 public class SpringbootWebApplication {
 
